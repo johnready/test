@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>asistent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+    <audio id="laserpuerta" src="https://storage.googleapis.com/door-193215.appspot.com/sistema/a5.wav" preload="auto" autostart="false"></audio>
+    <audio id="shield" src="https://storage.googleapis.com/door-193215.appspot.com/sonido/shield.ogg" preload="auto" autostart="false"></audio> 
+<style>
+
+    @media only screen and (orientation: landscape) {
+    body {
+        background-color: lightblue;
+    }
+}
+</style>
+  
+      
+</head>
+<body style="background-color: #333838;">
+
+
+    <div id="protectorwait" style="
+    display:none;
+    /*
+    background-image: url('https://storage.googleapis.com/door-193215.appspot.com/despertador/fondo-futurista-abstracto-13819038.jpg');
+    background-size: 100% 100%;
+    */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color:black;
+    z-index: 99999999999;">
+    </div>
+
+
+
+    <div id="protector" style="
+        display:block;
+       background-color: black;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        opacity: 0.9;
+        z-index: 999;">
+    </div>
+
+    <div id="esperando" style="
+        display: block;
+
+
+    /*background-image: url(https://storage.googleapis.com/door-193215.appspot.com/despertador/amazing_smart_ai_by_fantasy3.gif);
+   */
+
+        background-image: url(https://storage.googleapis.com/door-193215.appspot.com/doorIA/iaesperandofull.gif);
+    background-size: 100% 100%;
+       position: absolute;
+    top: 21%;
+    left: -8%;
+    height: 63%;
+    width: 56%;
+    opacity: 0.9;
+    z-index: 999;
+    ">
+
+
+
+    </div>
+
+    <div id="tienemensaje" style="
+        display:none;
+        background-image: url('https://storage.googleapis.com/door-193215.appspot.com/puertacara/vr.gif');
+        background-size: 100% 100%;
+            position: absolute;
+    top: 21%;
+    left: -8%;
+    height: 63%;
+    width: 56%;
+    opacity: 0.9;
+    z-index: 999;">
+
+
+
+    </div>
+
+    <div id="horalevantarse" style="
+       display:none;
+        background-image: url(https://storage.googleapis.com/door-193215.appspot.com/despertador/screen_saver_transition.gif);
+        background-size: 100% 100%;
+            position: absolute;
+    top: 21%;
+    left: -8%;
+    height: 63%;
+    width: 56%;
+    opacity: 0.9;
+    z-index: 999;">
+
+
+
+    </div>
+
+
+
+
+    <div id="led" style="
+       display:block;
+        background-image: url(https://storage.googleapis.com/door-193215.appspot.com/images/huellascan.gif);
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0%;
+        left: 46%;
+        height: 100%;
+        width: 54%;
+        z-index: 999;">
+
+
+
+    </div>
+
+
+    <div id="scancara" style="
+       display:none;
+        background-image: url(https://storage.googleapis.com/door-193215.appspot.com/images/facescan.gif);
+        background-size: 100% 100%;
+            position: absolute;
+    top: 21%;
+    left: -8%;
+    height: 63%;
+    width: 56%;
+    opacity: 0.9;
+    z-index: 999;">
+
+
+
+    </div>
+
+    <label id="lbltipAddedComment" style="  transform: rotate(90deg);  font-size: 27px;
+        z-index: 999;
+        position: absolute;
+        top: 40%;
+        left: 41%;
+        color: rgba(33, 150, 243, 0.48);"></label>
+
+    <label id="lbltipAddedCommentuser" style=" font-size:22px;
+        z-index: 999;
+        position: absolute;
+        top: 41%;
+    left: 37%;
+        color: rgba(33, 150, 243, 0.48);transform: rotate(90deg);">time sir</label>
+
+
+ <label id="lblluz" style=" font-size:22px;
+        z-index: 999;
+        position: absolute;
+        top: 41%;
+    left: 20%;
+        color: rgba(33, 150, 243, 0.48);transform: rotate(0deg);">..</label>
+
+
+<label id="lblluz2" style=" font-size:22px;
+z-index: 999;
+position: absolute;
+top: 41%;
+left: 18%;
+color: rgba(33, 150, 243, 0.48);transform: rotate(0deg);">..</label>
+    <script>
+
+
+        function reloj() {
+
+            var fObj = new Date();
+
+            var horas = fObj.getHours();
+            daymachine = fObj.getDate();
+
+            var minutos = fObj.getMinutes();
+
+            var segundos = fObj.getSeconds();
+
+            if (horas <= 9) horas = "0" + horas;
+
+            if (minutos <= 9) minutos = "0" + minutos;
+
+            if (segundos <= 9) segundos = "0" + segundos;
+
+            window.status = horas + ":" + minutos + ":" + segundos;
+            document.getElementById('lbltipAddedComment').innerHTML = horas + ":" + minutos + ":" + segundos;
+        }
+
+
+        setInterval("reloj()", 1000);
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
